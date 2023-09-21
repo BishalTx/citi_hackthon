@@ -1,14 +1,11 @@
 version: 1.0
 runtime: nodejs12
-build:
-  commands:
-    - mkdir -p /app/moodle
-    - cp -r * /app/moodle/
-    - cd /app/moodle
-    - # Add any additional build steps here
 run:
   command: |
+    mkdir -p /app/moodle
+    cp -r * /app/moodle/
     cd /app/moodle
+    # Add any additional build steps here
     # Install any necessary dependencies and configure Moodle here
     # For example:
     # - composer install
@@ -18,7 +15,6 @@ run:
     # - php /app/moodle/admin/cli/maintenance.php --enable
     # - php-fpm -D
     # - nginx -g "daemon off;"
-
 services:
   - name: moodle
     port: 8080
